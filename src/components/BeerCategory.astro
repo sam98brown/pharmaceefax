@@ -1,0 +1,18 @@
+---
+interface Props {
+	name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<ul>
+	<slot />
+</ul>
+<style lang="scss">
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+</style>

@@ -1,0 +1,32 @@
+---
+interface Props {
+	name: string;
+	brewery: string;
+	strength: string;
+	pricePint: number;
+	priceHalf: number;
+	colour: number;
+	style: string;
+}
+
+const { name, brewery, strength, pricePint, priceHalf, colour, style } = Astro.props;
+---
+
+<li>
+	<header>
+		<h1>{name}</h1>
+		<h2>{brewery}</h2>
+	</header>
+	<div class="beer-details">
+		<p class="style-strength">{style} • {strength}</p>
+		<p class="price"><strong>Pint</strong> £{pricePint} • <strong>Half</strong> £{priceHalf}</p>
+	</div>
+</li>
+<style lang="scss">
+	li {
+		color: #ffff00;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+</style>
