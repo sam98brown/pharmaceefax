@@ -6,7 +6,7 @@ const { name } = Astro.props;
 
 const beerCats = [
   {
-    category: "House Lager (VE)",
+    category: "House Lager",
     beers: [
       {
         name: "Hofmeister Helles",
@@ -16,6 +16,7 @@ const beerCats = [
         priceHalf: 2.95,
         style: "Lager - Helles",
         location: "Markt Schwaben, Bayern",
+        image: "https://labels.untappd.com/1796119",
       },
       {
         name: "Hockley Helles",
@@ -25,11 +26,12 @@ const beerCats = [
         priceHalf: 2.75,
         style: "Lager - Helles",
         location: "Nottingham, City of Nottingham",
+        image: "https://labels.untappd.com/4288572",
       },
     ],
   },
   {
-    category: "House Stout (VE)",
+    category: "House Stout",
     beers: [
       {
         name: "Brennan's Irish Stout",
@@ -39,11 +41,12 @@ const beerCats = [
         priceHalf: 2.9,
         style: "Stout - Irish Dry",
         location: "",
+        image: "https://labels.untappd.com/4275771",
       },
     ],
   },
   {
-    category: "Craft Ciders (VE)",
+    category: "Craft Ciders",
     beers: [
       {
         name: "Napton Cider",
@@ -53,6 +56,7 @@ const beerCats = [
         priceHalf: 2.8,
         style: "Cider - Dry",
         location: "Southam, Warwickshire",
+        image: "https://labels.untappd.com/3940458",
       },
       {
         name: "Medicinal Compound",
@@ -62,6 +66,7 @@ const beerCats = [
         priceHalf: 2.8,
         style: "Cider - Traditional / Apfelwein",
         location: "Leicester, Leicestershire",
+        image: "https://labels.untappd.com/3628835",
       },
       {
         name: "Fruits Cider",
@@ -71,6 +76,7 @@ const beerCats = [
         priceHalf: 2.8,
         style: "Cider - Traditional / Apfelwein",
         location: "Leicester, Leicestershire",
+        image: "https://labels.untappd.com/2253724",
       },
     ],
   },
@@ -82,50 +88,55 @@ const beerCats = [
         brewery: "Beartown",
         strength: 4.4,
         priceThird: 2.5,
-        priceTwoThird: 4.8,
+        priceTwoThirds: 4.8,
         pricePint: 6.75,
         style: "IPA - Session",
         location: "Congleton, Cheshire East",
+        image: "https://labels.untappd.com/4880732",
       },
       {
         name: "Iron Brew Raspberry Ripple",
         brewery: "Vault City",
         strength: 5.0,
         priceThird: 3.25,
-        priceTwoThird: 6.0,
+        priceTwoThirds: 6.0,
         pricePint: 9.0,
         style: "Sour - Smoothie / Pastry",
         location: "Edinburgh, Edinburgh",
+        image: "https://labels.untappd.com/6121130",
       },
       {
         name: "Neon Jungle",
         brewery: "Gweilo Beer",
         strength: 5.5,
         priceThird: 3.5,
-        priceTwoThird: 6.5,
+        priceTwoThirds: 6.5,
         pricePint: 9.25,
         style: "IPA - New England / Hazy",
         location: "Hong Kong Island, Hong Kong Island",
+        image: "https://labels.untappd.com/5801184",
       },
       {
         name: "Fairytale of Brew York (2024)",
         brewery: "Brew York",
         strength: 4.9,
         priceThird: 3.0,
-        priceTwoThird: 5.8,
+        priceTwoThirds: 5.8,
         pricePint: 8.25,
         style: "Stout - Milk / Sweet",
         location: "York, York",
+        image: "https://labels.untappd.com/5986820",
       },
       {
         name: "Plum Porter Grand Reserve",
         brewery: "Titanic",
         strength: 6.5,
         priceThird: 3.0,
-        priceTwoThird: 5.8,
+        priceTwoThirds: 5.8,
         pricePint: 8.25,
         style: "Porter - English",
         location: "Stoke-on-Trent, Stoke-on-Trent",
+        image: "https://labels.untappd.com/1821645",
       },
       {
         name: "Caribbean Chocolate Cake: Rocky Road Brownie",
@@ -134,6 +145,7 @@ const beerCats = [
         priceThird: 6.25,
         style: "Stout - Imperial / Double Milk",
         location: "Wokingham, Berkshire",
+        image: "https://labels.untappd.com/6042710",
       },
     ],
   },
@@ -141,30 +153,81 @@ const beerCats = [
 ---
 
 <div class="beer-list">
-  <BeerCategory name="House Lager (VE)">
-    {
-      beerCats[0].beers.map((beer) => (
-        <Beer
-          name={beer.name}
-          brewery={beer.brewery}
-          strength={beer.strength}
-          pricePint={beer.pricePint}
-          priceHalf={beer.priceHalf}
-          style={beer.style}
-        />
-      ))
-    }
-  </BeerCategory>
+  <div class="col">
+    <BeerCategory name="House Lager">
+      {
+        beerCats[0].beers.map((beer) => (
+          <Beer
+            name={beer.name}
+            brewery={beer.brewery}
+            strength={beer.strength}
+            pricePint={beer.pricePint}
+            priceHalf={beer.priceHalf}
+            style={beer.style}
+            image={beer.image}
+          />
+        ))
+      }
+    </BeerCategory>
+
+    <BeerCategory name="House Stout">
+      {
+        beerCats[1].beers.map((beer) => (
+          <Beer
+            name={beer.name}
+            brewery={beer.brewery}
+            strength={beer.strength}
+            pricePint={beer.pricePint}
+            priceHalf={beer.priceHalf}
+            style={beer.style}
+            image={beer.image}
+          />
+        ))
+      }
+    </BeerCategory>
+
+    <BeerCategory name="Craft Ciders">
+      {
+        beerCats[2].beers.map((beer) => (
+          <Beer
+            name={beer.name}
+            brewery={beer.brewery}
+            strength={beer.strength}
+            pricePint={beer.pricePint}
+            priceHalf={beer.priceHalf}
+            style={beer.style}
+            image={beer.image}
+          />
+        ))
+      }
+    </BeerCategory>
+  </div>
+
+  <div class="col">
+    <BeerCategory name="Craft Beers">
+      {
+        beerCats[3].beers.map((beer) => (
+          <Beer
+            name={beer.name}
+            brewery={beer.brewery}
+            strength={beer.strength}
+            priceThird={beer.priceThird}
+            priceTwoThirds={beer.priceTwoThirds}
+            pricePint={beer.pricePint}
+            style={beer.style}
+            image={beer.image}
+          />
+        ))
+      }
+    </BeerCategory>
+  </div>
 </div>
 
-<style lang="scss">
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
+<style>
   .beer-list {
-    width: 100%;
-    margin: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0 20px;
   }
 </style>

@@ -1,36 +1,144 @@
 ---
 interface Props {
   name: string;
-  brewery: string;
+  brewery?: string;
   strength: number;
-  pricePint: number;
-  priceHalf: number;
+  pricePint?: number;
+  priceHalf?: number;
   priceThird?: number;
   priceTwoThirds?: number;
   colour?: string;
-  style: string;
+  style?: string;
+  image?: string;
 }
-const { name, brewery, strength, pricePint, priceHalf, colour, style } =
-  Astro.props;
+const {
+  name,
+  brewery,
+  strength,
+  pricePint,
+  priceHalf,
+  priceTwoThirds,
+  priceThird,
+  image,
+  colour,
+  style,
+} = Astro.props;
 ---
 
 <li>
-  <header>
-    <h1>{name}</h1>
-    <h2>{brewery}</h2>
-  </header>
-  <div class="beer-details">
-    <p class="style-strength">{style} • {strength}</p>
-    <p class="price">
-      <strong>Pint</strong> £{pricePint} • <strong>Half</strong> £{priceHalf}
-    </p>
+  <div class="image">
+    <img src={image} />
+  </div>
+  <div class="text">
+    <header>
+      <div class="brewery-name">
+        <p class="brewery">{brewery}&nbsp;&mdash;</p><p class="name">
+          &nbsp;{name}
+        </p>
+      </div>
+    </header>
+    <div class="beer-details">
+      <p class="style-strength">{style} • {strength}</p>
+      <ul class="prices">
+        {
+          priceThird && (
+            <li>
+              Third: <span class="price-price">£{priceThird.toFixed(2)}</span>
+            </li>
+          )
+        }
+        {
+          priceHalf && (
+            <li>
+              Half: <span class="price-price">£{priceHalf.toFixed(2)}</span>
+            </li>
+          )
+        }
+        {
+          priceTwoThirds && (
+            <li>
+              Two Thirds:{" "}
+              <span class="price-price">£{priceTwoThirds.toFixed(2)}</span>
+            </li>
+          )
+        }
+        {
+          pricePint && (
+            <li>
+              Pint: <span class="price-price">£{pricePint.toFixed(2)}</span>
+            </li>
+          )
+        }
+      </ul>
+    </div>
   </div>
 </li>
 <style lang="scss">
   li {
-    color: #ffff00;
+    color: var(--colour-white);
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    font-family: "ceefax_text_2";
+    margin-bottom: 10px;
+  }
+
+  .image {
+    margin-right: 20px;
+  }
+
+  .brewery-name {
+    display: inline;
+
+    p {
+      display: inline;
+      font-size: 23px;
+    }
+
+    .brewery {
+      font-size: 17px;
+    }
+
+    .name {
+      font-weight: 800;
+    }
+  }
+
+  .beer-details {
+    font-size: 16px;
+  }
+  .style-strength {
+    margin: 12px 0;
+  }
+
+  .price-price {
+    font-size: 25px;
+    margin-left: 7px;
+  }
+
+  .image {
+    aspect-ratio: 1/1;
+    height: 100%;
+    img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+
+  .prices {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
   }
 </style>
