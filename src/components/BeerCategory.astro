@@ -1,18 +1,39 @@
 ---
 interface Props {
-	name: string;
+  name: string;
 }
 
 const { name } = Astro.props;
 ---
 
+<h2>{name}</h2>
 <ul>
-	<slot />
+  <slot />
 </ul>
 <style lang="scss">
-	ul {
-		padding: 0;
-		margin: 0;
-		list-style: none;
-	}
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
 </style>
+<!-- <BeerCategory name="House Lager">
+	<Beer
+		name="Hockley Helles"
+		brewery="Hockley BrewCo"
+		strength="4"
+		pricePint={5.20}
+		priceHalf={2.60}
+		colour={1}
+		style="Lager - Helles"
+	/>
+	<Beer
+		name="Hofmeister Helles"
+		brewery="Hofmeister"
+		strength="4"
+		pricePint={5.60}
+		priceHalf={2.80}
+		colour={1}
+		style="Lager - Helles"
+	/>
+</BeerCategory> -->

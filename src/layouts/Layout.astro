@@ -1,6 +1,6 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,33 +8,118 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 <style is:global>
+  html {
+    font-family: "ceefax_text";
+    background: black;
+    color: white;
+  }
 
-	html {
-		font-family: 'modesevenregular';
-		background: black;
-		color: white;
-	}
+  :root {
+    --colour-blue: #0000ff;
+    --colour-red: #ff0000;
+    --colour-yellow: #ffff00;
+    --colour-l-blue: #00ffff;
+    --colour-pink: #ff00ff;
+    --colour-white: #ffffff;
+  }
 
-	@font-face {
-		font-family: 'modesevenregular';
-		src: url('mode7gx3-webfont.woff2') format('woff2'),
-			 url('mode7gx3-webfont.woff') format('woff');
-		font-weight: normal;
-		font-style: normal;
+  @font-face {
+    font-family: "ceefax_text";
+    src:
+      url("mode7gx3-webfont.woff2") format("woff2"),
+      url("mode7gx3-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "ceefax_bulletin";
+    src:
+      url("ceefax-bulletin-1-webfont.woff2") format("woff2"),
+      url("ceefax-bulletin-1-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
 
-	}
+  /* begin reset */
+  /* 1. Use a more-intuitive box-sizing model */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+
+  body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 5. Improve media defaults */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* 6. Inherit fonts for form controls */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* 7. Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* 8. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  /*
+		9. Create a root stacking context
+	*/
+  #root,
+  #__next {
+    isolation: isolate;
+  }
 </style>

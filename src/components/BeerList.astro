@@ -1,0 +1,170 @@
+---
+import Beer from "./Beer.astro";
+import BeerCategory from "./BeerCategory.astro";
+
+const { name } = Astro.props;
+
+const beerCats = [
+  {
+    category: "House Lager (VE)",
+    beers: [
+      {
+        name: "Hofmeister Helles",
+        brewery: "Hofmeister",
+        strength: 5.0,
+        pricePint: 5.9,
+        priceHalf: 2.95,
+        style: "Lager - Helles",
+        location: "Markt Schwaben, Bayern",
+      },
+      {
+        name: "Hockley Helles",
+        brewery: "Hockley BrewCo",
+        strength: 4.0,
+        pricePint: 5.5,
+        priceHalf: 2.75,
+        style: "Lager - Helles",
+        location: "Nottingham, City of Nottingham",
+      },
+    ],
+  },
+  {
+    category: "House Stout (VE)",
+    beers: [
+      {
+        name: "Brennan's Irish Stout",
+        brewery: "Brennan's",
+        strength: 4.2,
+        pricePint: 5.85,
+        priceHalf: 2.9,
+        style: "Stout - Irish Dry",
+        location: "",
+      },
+    ],
+  },
+  {
+    category: "Craft Ciders (VE)",
+    beers: [
+      {
+        name: "Napton Cider",
+        brewery: "Napton Cider",
+        strength: 4.6,
+        pricePint: 5.6,
+        priceHalf: 2.8,
+        style: "Cider - Dry",
+        location: "Southam, Warwickshire",
+      },
+      {
+        name: "Medicinal Compound",
+        brewery: "The Bottle Kicking Cider",
+        strength: 4.8,
+        pricePint: 5.6,
+        priceHalf: 2.8,
+        style: "Cider - Traditional / Apfelwein",
+        location: "Leicester, Leicestershire",
+      },
+      {
+        name: "Fruits Cider",
+        brewery: "The Bottle Kicking Cider",
+        strength: 4.0,
+        pricePint: 5.6,
+        priceHalf: 2.8,
+        style: "Cider - Traditional / Apfelwein",
+        location: "Leicester, Leicestershire",
+      },
+    ],
+  },
+  {
+    category: "Craft Beers",
+    beers: [
+      {
+        name: "Inception (Similar to Neck Oil)",
+        brewery: "Beartown",
+        strength: 4.4,
+        priceThird: 2.5,
+        priceTwoThird: 4.8,
+        pricePint: 6.75,
+        style: "IPA - Session",
+        location: "Congleton, Cheshire East",
+      },
+      {
+        name: "Iron Brew Raspberry Ripple",
+        brewery: "Vault City",
+        strength: 5.0,
+        priceThird: 3.25,
+        priceTwoThird: 6.0,
+        pricePint: 9.0,
+        style: "Sour - Smoothie / Pastry",
+        location: "Edinburgh, Edinburgh",
+      },
+      {
+        name: "Neon Jungle",
+        brewery: "Gweilo Beer",
+        strength: 5.5,
+        priceThird: 3.5,
+        priceTwoThird: 6.5,
+        pricePint: 9.25,
+        style: "IPA - New England / Hazy",
+        location: "Hong Kong Island, Hong Kong Island",
+      },
+      {
+        name: "Fairytale of Brew York (2024)",
+        brewery: "Brew York",
+        strength: 4.9,
+        priceThird: 3.0,
+        priceTwoThird: 5.8,
+        pricePint: 8.25,
+        style: "Stout - Milk / Sweet",
+        location: "York, York",
+      },
+      {
+        name: "Plum Porter Grand Reserve",
+        brewery: "Titanic",
+        strength: 6.5,
+        priceThird: 3.0,
+        priceTwoThird: 5.8,
+        pricePint: 8.25,
+        style: "Porter - English",
+        location: "Stoke-on-Trent, Stoke-on-Trent",
+      },
+      {
+        name: "Caribbean Chocolate Cake: Rocky Road Brownie",
+        brewery: "Siren Craft Brew",
+        strength: 7.8,
+        priceThird: 6.25,
+        style: "Stout - Imperial / Double Milk",
+        location: "Wokingham, Berkshire",
+      },
+    ],
+  },
+];
+---
+
+<div class="beer-list">
+  <BeerCategory name="House Lager (VE)">
+    {
+      beerCats[0].beers.map((beer) => (
+        <Beer
+          name={beer.name}
+          brewery={beer.brewery}
+          strength={beer.strength}
+          pricePint={beer.pricePint}
+          priceHalf={beer.priceHalf}
+          style={beer.style}
+        />
+      ))
+    }
+  </BeerCategory>
+</div>
+
+<style lang="scss">
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .beer-list {
+    width: 100%;
+    margin: 0 20px;
+  }
+</style>

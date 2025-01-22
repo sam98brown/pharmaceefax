@@ -1,0 +1,92 @@
+---
+// * Get today's date
+const today = new Date();
+const formattedDate = today.toLocaleDateString("en-GB", {
+  weekday: "short", // Short day name (e.g., Thu)
+  day: "2-digit", // Day as two digits (e.g., 23)
+  month: "short", // Short month name (e.g., Jul)
+  year: "numeric", // Full year (e.g., 1988)
+});
+---
+
+<div class="top-bar">
+  <header>
+    CEEFAX 1 324 <span>{formattedDate}</span><div id="clock"></div>
+  </header>
+  <h1>PHARMACEEFAX</h1>
+  <h2>WELCOME TO CAMRA PUB OF THE YEAR</h2>
+</div>
+
+<style lang="scss">
+  // Set the aspect ratio of the component
+
+  .top-bar {
+    width: 50vw;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h1 {
+    font-family: "ceefax_bulletin";
+    font-size: 4.25vw;
+    background-color: var(--colour-blue);
+    color: var(--colour-yellow);
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    padding-top: 20px;
+    font-weight: 800;
+    margin-top: 10px;
+  }
+
+  h2 {
+    font-family: "ceefax_bulletin";
+    font-size: 32px;
+    color: var(--colour-white);
+    text-align: center;
+    margin: 15px 0;
+  }
+</style>
+
+<script>
+  //javascript timer function belongs to:
+  //https://codepen.io/mathiasschjott/pen/rerdGj
+  //used here with many thanks
+  function startTime() {
+    let offset = 0; //add an hour for GMT British SUmmertime
+    var today = new Date();
+    var h = today.getUTCHours();
+
+    //United Kingdom British Summertime Adjustment 1 Hour Ahead
+    if (h + offset == 24) h = -1;
+
+    var m = today.getUTCMinutes();
+    var s = today.getUTCSeconds();
+    h = h + offset;
+    if (h > 24) {
+      h = h - 24;
+    }
+    if (h < 0) {
+      h = h + 24;
+    }
+    h = checkTime(h);
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById("clock").innerHTML = h + ":" + m + "/" + s;
+    var t = setTimeout(function () {
+      startTime();
+    }, 500);
+  }
+
+  function checkTime(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
+
+  startTime();
+</script>
