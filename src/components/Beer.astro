@@ -45,21 +45,23 @@ const {
         {
           priceThird && (
             <li>
-              Third: <span class="price-price">£{priceThird.toFixed(2)}</span>
+              Third&nbsp;
+              <span class="price-price">£{priceThird.toFixed(2)}</span>
             </li>
           )
         }
         {
           priceHalf && (
             <li>
-              Half: <span class="price-price">£{priceHalf.toFixed(2)}</span>
+              Half&nbsp;
+              <span class="price-price">£{priceHalf.toFixed(2)}</span>
             </li>
           )
         }
         {
           priceTwoThirds && (
             <li>
-              Two Thirds:{" "}
+              Two Thirds&nbsp;
               <span class="price-price">£{priceTwoThirds.toFixed(2)}</span>
             </li>
           )
@@ -67,7 +69,8 @@ const {
         {
           pricePint && (
             <li>
-              Pint: <span class="price-price">£{pricePint.toFixed(2)}</span>
+              Pint&nbsp;
+              <span class="price-price">£{pricePint.toFixed(2)}</span>
             </li>
           )
         }
@@ -83,7 +86,7 @@ const {
     margin: 0;
     display: flex;
     font-family: "ceefax_text_2";
-    margin-bottom: 7px;
+    margin-bottom: 10px;
   }
 
   .brewery-name {
@@ -107,7 +110,7 @@ const {
     font-size: 16px;
   }
   .style-strength {
-    margin: 12px 0;
+    margin: 10px 0;
   }
 
   .price-price {
@@ -126,6 +129,7 @@ const {
       height: 100%;
       width: 100%;
       object-fit: contain;
+      object-position: top;
     }
   }
 
@@ -140,7 +144,7 @@ const {
     li {
       display: flex;
       align-items: center;
-      margin-right: 20px;
+      margin-right: 40px;
     }
   }
 
