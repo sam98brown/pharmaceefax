@@ -38,7 +38,9 @@ const {
       </div>
     </header>
     <div class="beer-details">
-      <p class="style-strength">{style} • {strength}</p>
+      <p class="style-strength">
+        {style} • <span class="strength">{strength}%</span>
+      </p>
       <ul class="prices">
         {
           priceThird && (
@@ -81,7 +83,7 @@ const {
     margin: 0;
     display: flex;
     font-family: "ceefax_text_2";
-    margin-bottom: 10px;
+    margin-bottom: 7px;
   }
 
   .image {
@@ -93,11 +95,11 @@ const {
 
     p {
       display: inline;
-      font-size: 23px;
+      font-size: 16px;
     }
 
     .brewery {
-      font-size: 17px;
+      font-size: 16px;
     }
 
     .name {
@@ -113,8 +115,9 @@ const {
   }
 
   .price-price {
-    font-size: 25px;
+    font-size: 18px;
     margin-left: 7px;
+    color: var(--colour-l-blue);
   }
 
   .image {
@@ -140,5 +143,11 @@ const {
       align-items: center;
       margin-right: 20px;
     }
+  }
+
+  .strength {
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--colour-white);
   }
 </style>
